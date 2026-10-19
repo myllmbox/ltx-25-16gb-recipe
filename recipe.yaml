@@ -1,0 +1,21 @@
+# The one and only config. run.sh reads THIS — there is nothing else to configure.
+
+server:
+  image: myllmbox/ltx-2.5-16gb-hibrid:v1                 # pinned public tag
+  model: myllmbox/LTX-2.5-16gb-hibrid                  # HF repo — downloaded into ./models on first run (~47G)
+  port: 8000
+  models_dir: ./models
+  cache_dir: ./cache
+  min_free_vram_mib: 15000                             # run.sh refuses to start below this much free GPU memory
+  min_ram_gib: 15                                      # system RAM; long clips stream model blocks through pinned host memory
+
+env:
+  SERVED_MODEL_NAME: LTX-2.5-16gb-hibrid
+  DEFAULT_WIDTH: "1280"                                # a request without a size: 1280×704 (16:9), 121 frames = 5 s @ 24
+  DEFAULT_HEIGHT: "704"
+  DEFAULT_FRAMES: "121"
+  DEFAULT_FPS: "24"
+  MAX_IMAGES: "4"                                      # conditioning images per request (first frame, last frame, keyframes)
+  LTX_MAX_VIDEO_TOKENS: "0"                            # 0 = from your GPU (a 16 GB card: 51,000 full-resolution video tokens)
+  PYTHONUNBUFFERED: "1"
+  PYTORCH_CUDA_ALLOC_CONF: expandable_segments:True
