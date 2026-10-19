@@ -2,24 +2,26 @@
 
 [Lightricks LTX-2.5](https://huggingface.co/Lightricks/LTX-2.5) — 22B text/image-to-video **with synchronized sound** — as our
 [16gb hibrid](https://huggingface.co/myllmbox/LTX-2.5-16gb-hibrid) repack on a single RTX 50-series card with 16 GB.
-**1080p up to 8 s, 1280×704 up to 18.7 s, 768×448 up to 50 s. A 5 s 720p clip in 130 s.** One command.
+**1080p up to 8 s, 1280×704 up to 18.7 s, 768×448 up to 50 s. A 5 s 720p clip in 125 s.** One command.
 
 LTX-2.x Community License — free below USD 10M annual revenue. Built on LTX-2.5 by Lightricks.
 
 | [![](assets/motorcycle-1080p-5s.gif)](assets/motorcycle-1080p-5s.mp4) | [![](assets/paper-boats-720p-5s.gif)](assets/paper-boats-720p-5s.mp4) | [![](assets/fox-448p-50s.gif)](assets/fox-448p-50s.mp4) |
 |---|---|---|
-| 1920×1088 · 5 s · 180 s | 1280×704 · 5 s · 130 s | 768×448 · **50 s** · 263 s |
+| 1920×1088 · 5 s | 1280×704 · 5 s | 768×448 · **50 s** |
 
 Click a preview for the full clip with sound.
 
 ## Measured (RTX 5080 16 GB, 16 GB system RAM + 4 GB swap, 24 fps, with sound)
 
-| size | 5 s clip | longest clip | its render time |
-|---|---|---|---|
-| **1920×1088** | 180 s | **8 s** | 257 s |
-| **1280×704** | 130 s | **18.7 s** | 256 s |
-| **1024×576** | — | **29 s** | 268 s |
-| **768×448** | — | **50 s** | 263 s |
+Render time per clip:
+
+| size | 5 s | 10 s | 15 s | longest clip |
+|---|---|---|---|---|
+| **1920×1088** | 181 s | — | — | **8 s** · 257 s |
+| **1280×704** | 125 s | 162 s | 233 s | **18.7 s** · 256 s |
+| **1024×576** | 120 s | 134 s | 160 s | **29 s** · 268 s |
+| **768×448** | 111 s | 120 s | 134 s | **50 s** · 263 s |
 
 The first clip after a start also reads the weights from disk. Portrait sizes (704×1280, …) fit the same lengths.
 
